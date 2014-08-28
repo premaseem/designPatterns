@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import com.premaseem.strategy.AirthematicOperationStrategy;
 import com.premaseem.strategy.impl.AdditionStragegy;
+import com.premaseem.strategy.impl.MultiplicationStragegy;
+import com.premaseem.strategy.impl.SubstractionStragegy;
 
 public class ClientMain {
 
@@ -26,9 +28,22 @@ public class ClientMain {
 			strategy = new AdditionStragegy();
 		}
 		
+		if (operationCode.contains("SUB")){
+			strategy = new SubstractionStragegy();
+		}
+		
+		if (operationCode.contains("MUL")){
+			strategy = new MultiplicationStragegy();
+		}
+		
+		
 		System.out.printf("You picked stragety as %s",operationCode);
         System.out.println();
+        if(strategy !=null){
 		System.out.printf("Final result is %d",strategy.performOperation(num1, num2));
+        } else {
+        	System.out.println("Invalid operation picked :-( ");
+        }
 		System.out.println();
 		System.out.println("                 Thanks by Prem Aseem ");
 
