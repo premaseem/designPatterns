@@ -2,6 +2,9 @@ package com.premaseem.client;
 
 import java.util.Scanner;
 
+import com.premaseem.strategy.AirthematicOperationStrategy;
+import com.premaseem.strategy.impl.AdditionStragegy;
+
 public class ClientMain {
 
 	public static void main(String[] args) {
@@ -18,13 +21,16 @@ public class ClientMain {
 		System.out.println("MUL");
 		System.out.println("Please enter OPERATION CODE, on the run time strategy would be picked based on your choice of operation");
 		String operationCode = scan.next();
-		
+		AirthematicOperationStrategy strategy = null;
+		if (operationCode.contains("ADD")){
+			strategy = new AdditionStragegy();
+		}
 		
 		System.out.printf("You picked stragety as %s",operationCode);
         System.out.println();
-		System.out.println("Final result is ");
-		
-		System.out.println("Thanks by Prem Aseem ");
+		System.out.printf("Final result is %d",strategy.performOperation(num1, num2));
+		System.out.println();
+		System.out.println("                 Thanks by Prem Aseem ");
 
 		
 	}
