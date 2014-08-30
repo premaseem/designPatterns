@@ -2,7 +2,7 @@ package com.premaseem.javaapi.observable;
 
 import java.util.Observable;
 
-public class ObservableShare extends Observable {
+public class ObservableGold extends Observable {
 
 	Integer shareprice = 0;
 	
@@ -15,11 +15,10 @@ public class ObservableShare extends Observable {
 		super.notifyObservers();
 	}
 
-	public void setShareprice(Integer shareprice) {
-		System.out.println("updating price changein subject ");
+	public void setGoldprice(Integer shareprice) {
+		System.out.println("Gold Price chaning ...  ");
 		this.shareprice = shareprice;
 		super.setChanged();
 		super.notifyObservers();
-		super.notifyObservers(null);
 	}
 }

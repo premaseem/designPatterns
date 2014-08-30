@@ -3,6 +3,7 @@ package com.premaseem.client;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.premaseem.javaapi.observable.ObservableGold;
 import com.premaseem.javaapi.observable.ObservableShare;
 import com.premaseem.javaapi.observable.ObserverShareAuthority;
 import com.premaseem.javaapi.observable.ObserverShareBroker;
@@ -25,30 +26,46 @@ public class JavaAPIClient {
 					.println("User is acting as a borker here and he can choose to turn on notification from 2 different companies");
 
 			ObservableShare subject = new ObservableShare();
+			ObservableGold subject2 = new ObservableGold();
+
 			ObserverShareBroker subscriber1 = new ObserverShareBroker();
 			ObserverShareAuthority subscriber2 = new ObserverShareAuthority();
 			subject.addObserver(subscriber2);
+			subject2.addObserver(subscriber2);
 			subscriber2.setSubject(subject);
-			
+
+			// subscriber2.setSubject(subject2);
+
 			System.out
 					.println("Do you want to observer / get notification of share price updates of shares ? ");
 			System.out.println("Press 1 for yes and 0 or other digits for no ");
 			int observeInfosysShareFlag = scan.nextInt();
-			
-			if(observeInfosysShareFlag==1){
+
+			if (observeInfosysShareFlag == 1) {
 				subject.addObserver(subscriber1);
 				subscriber1.setSubject(subject);
-			}else{
+			} else {
 				subject.deleteObserver(subscriber1);
 			}
 
+			System.out
+					.println("Do you want to observer / get notification of GOLD price updates of GOLD ? ");
+			System.out.println("Press 1 for yes and 0 or other digits for no ");
+			int observerGoldFlag = scan.nextInt();
+
+			if (observerGoldFlag == 1) {
+				subject2.addObserver(subscriber1);
+			} else {
+				subject2.deleteObserver(subscriber1);
+			}
+
 			System.out.println("Simulating price change for share  ");
-			subject.setShareprice(14);
-			subject.setShareprice(420);
-			
+//			subject.setShareprice(14);
+			subject2.setGoldprice(1000);
 
 			System.out.println();
-			System.out.println(" $$$$$$$$$$$$$$$$$$$$  Thanks by Prem Aseem $$$$$$$$$$$$$$$$$$$$$$");
+			System.out
+					.println(" $$$$$$$$$$$$$$$$$$$$  Thanks by Prem Aseem $$$$$$$$$$$$$$$$$$$$$$");
 
 			System.out.println();
 
