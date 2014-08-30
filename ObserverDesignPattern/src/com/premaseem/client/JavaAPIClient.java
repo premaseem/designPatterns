@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import com.premaseem.javaapi.observable.ObservableShare;
+import com.premaseem.javaapi.observable.ObserverShareAuthority;
 import com.premaseem.javaapi.observable.ObserverShareBroker;
 import com.premaseem.observable.SharePriceObservable;
 import com.premaseem.observable.impl.Company1Share;
@@ -25,6 +26,9 @@ public class JavaAPIClient {
 
 			ObservableShare subject = new ObservableShare();
 			ObserverShareBroker subscriber1 = new ObserverShareBroker();
+			ObserverShareAuthority subscriber2 = new ObserverShareAuthority();
+			subject.addObserver(subscriber2);
+			subscriber2.setSubject(subject);
 			
 			System.out
 					.println("Do you want to observer / get notification of share price updates of shares ? ");
