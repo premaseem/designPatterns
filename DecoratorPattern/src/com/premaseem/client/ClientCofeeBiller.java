@@ -1,7 +1,10 @@
 package com.premaseem.client;
 
-
 import java.util.Scanner;
+
+import com.premaseem.decorator.AbstractCoffeRoot;
+import com.premaseem.decorator.basecoffee.ColdCoffe;
+import com.premaseem.decorator.basecoffee.HotCoffe;
 
 public class ClientCofeeBiller {
 
@@ -10,11 +13,22 @@ public class ClientCofeeBiller {
 		int repeatRunFlag = 1;
 		while (repeatRunFlag == 1) {
 
-			System.out
-					.println("This is the Client Main file for Observer Pattern where user can attach and detech subject on runtime without hard coded data");
-			System.out
-					.println("User is acting as a borker here and he can choose to turn on notification from 2 different companies");
+			System.out.println("This is the Client Main Decorator Pattern ");
 
+			System.out.println("What kind of coffee would you like to have ? ");
+			System.out.println("Press 1 for Hot Coffe ");
+			System.out.println("Press 2 for Cold Coffe ");
+			Integer coffeType =   scan.nextInt();
+			AbstractCoffeRoot abstractCoffeRoot =null;
+			if(coffeType == 1){
+				abstractCoffeRoot = new HotCoffe();
+			}else{
+				abstractCoffeRoot = new ColdCoffe();
+			}
+			
+			System.out.println("Your final order is");
+			System.out.println(abstractCoffeRoot.getDescription());
+			System.out.println("Toal cost of order is " + abstractCoffeRoot.getCost());
 			System.out.println("\n $$$$$$$$$$$$$$$$$$$$  Thanks by Prem Aseem $$$$$$$$$$$$$$$$$$$$$$ \n ");
 			System.out.println("Do you want to Re-run this program - Press 1 for yes and 0 or other digits to EXIT ");
 			repeatRunFlag = scan.nextInt();
