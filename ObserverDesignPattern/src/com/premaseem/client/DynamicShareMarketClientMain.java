@@ -54,10 +54,8 @@ public class DynamicShareMarketClientMain {
 			simulateSharePriceChange(company2Share);
 			System.out.println("========================================");
 
-			System.out.println();
 			System.out.println("                 Thanks by Prem Aseem ");
 
-			System.out.println();
 
 			System.out
 					.println("Do you want to Re-run this program - Press 1 for yes and 0 or other digits to EXIT ");
