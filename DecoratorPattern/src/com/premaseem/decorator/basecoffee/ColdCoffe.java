@@ -13,5 +13,4 @@ public class ColdCoffe extends AbstractCoffeRoot {
 	public Double getCost() {
 		return 12.0;
 	}
-
 }
