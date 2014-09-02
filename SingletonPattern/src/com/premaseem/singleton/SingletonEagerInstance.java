@@ -1,13 +1,13 @@
 package com.premaseem.singleton;
 
-public class Singleton {
+public class SingletonEagerInstance {
 
 	// Have a private constructor so that it cannot be instanciate other then
 	// from this class.
-	private Singleton() {
+	private SingletonEagerInstance() {
 	}
 
-	public static final Singleton uniqueInstance = new Singleton();
+	public static final SingletonEagerInstance uniqueInstance = new SingletonEagerInstance();
 	public int stateholder = 1;
 
 	public void doCounting() {
