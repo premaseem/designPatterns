@@ -7,6 +7,27 @@ public interface Command {
 
 }
 
+class Undocommand implements Command{
+	Command Lastcommand;
+	RemoteControl remoteControl;
+	
+	public Undocommand(RemoteControl Command){
+		this.remoteControl = Command;
+	}
+	
+	@Override
+    public void execute() {
+		System.out.println(remoteControl.getLastCommand());
+		remoteControl.getLastCommand().undo();
+    }
+
+	@Override
+    public void undo() {
+		remoteControl.getLastCommand().undo();
+	}
+}
+
+
 class LightON implements Command{
 	Light light;
 	public LightON(Light light){

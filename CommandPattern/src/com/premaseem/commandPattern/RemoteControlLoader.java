@@ -15,7 +15,7 @@ public class RemoteControlLoader {
 		TV tv = new TV();
 		
 //		Command cmd =  new LightON(light);
-		remote.setCommandOnSlot(0,new LightON(light));	
+		remote.setCommandOnSlot(0,new Undocommand(remote));	
 		remote.setCommandOnSlot(1,new LightON(light));
 		remote.setCommandOnSlot(2,new LightOFF(light));
 		remote.setCommandOnSlot(3,new FanOFF(fan));

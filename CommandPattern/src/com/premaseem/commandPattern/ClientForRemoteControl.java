@@ -7,6 +7,9 @@ public class ClientForRemoteControl {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int repeatRunFlag = 1;
+		RemoteControl remote = new RemoteControl();
+		RemoteControlLoader loader = new RemoteControlLoader(remote);
+		loader.load();
 		while (repeatRunFlag == 1) {
 
 			System.out.println("This is the Client Main Command Pattern with Remote control Example ");
@@ -17,21 +20,15 @@ public class ClientForRemoteControl {
 			System.out.println("Remember 0 is for UNDO and 10 is celebration mode ");
 
 			
-			RemoteControl remote = new RemoteControl();
-			RemoteControlLoader loader = new RemoteControlLoader(remote);
-			loader.load();
-			
 			int remoteButtonNumber = scan.nextInt();
 			remote.remoteButtonPress(remoteButtonNumber);
 			
-
 
 			// invoker Remote 
 			// reciever devices
 			// command - command
 			// client
 
-			// PizzaBase pizza = PizzaFactory.getPizza(pizzaType);
 
 			System.out.println("\n $$$$$$$$$$$$$$$$$$$$  Thanks by Prem Aseem $$$$$$$$$$$$$$$$$$$$$$ \n ");
 			System.out.println("Do you want to Re-run this program - Press 1 for yes and 0 or other digits to EXIT ");
