@@ -2,7 +2,7 @@ package com.premaseem.commandPattern;
 
 import java.util.Scanner;
 
-public class ClientForPizzaFactory {
+public class ClientForRemoteControl {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -16,8 +16,20 @@ public class ClientForPizzaFactory {
 			System.out.println("Please press the any command between 0 to 10 for operation ");
 			System.out.println("Remember 0 is for UNDO and 10 is celebration mode ");
 
+			
+			RemoteControl remote = new RemoteControl();
+			RemoteControlLoader loader = new RemoteControlLoader(remote);
+			loader.load();
+			
 			int remoteButtonNumber = scan.nextInt();
+			remote.remoteButtonPress(remoteButtonNumber);
+			
 
+
+			// invoker Remote 
+			// reciever devices
+			// command - command
+			// client
 
 			// PizzaBase pizza = PizzaFactory.getPizza(pizzaType);
 
