@@ -17,15 +17,20 @@ public class RemoteControlLoader {
 //		Command cmd =  new LightON(light);
 		remote.setCommandOnSlot(0,new Undocommand(remote));	
 		remote.setCommandOnSlot(1,new LightON(light));
-		remote.setCommandOnSlot(2,new LightOFF(light));
-		remote.setCommandOnSlot(3,new FanOFF(fan));
+		LightOFF lightOff = new LightOFF(light);
+		remote.setCommandOnSlot(2,lightOff);
+		FanOFF fanOff = new FanOFF(fan);
+		remote.setCommandOnSlot(3,fanOff);
 		remote.setCommandOnSlot(4,new FanLOW(fan));
 		remote.setCommandOnSlot(5,new FanMEDIUM(fan));
 		remote.setCommandOnSlot(6,new FanHIGH(fan));
 		remote.setCommandOnSlot(7,new TVON(tv));
-		remote.setCommandOnSlot(8,new TVOFF(tv));
+		TVOFF tvOff = new TVOFF(tv);
+		remote.setCommandOnSlot(8,tvOff);
 		remote.setCommandOnSlot(9,new TVChannelUP(tv));
-		remote.setCommandOnSlot(10,new TVChannelDOWN(tv));
+		remote.setCommandOnSlot(10,new UndocommandMacro(remote));
+		remote.setCommandOnSlot(11,new MasterOffcommand(lightOff,fanOff,tvOff));
+		
 
 	}
 }

@@ -17,7 +17,8 @@ public class ClientForRemoteControl {
 			System.out.println("Loading the remote with approviate commands and mapping them in slots ... ");
 			
 			System.out.println("Please press the any command between 0 to 10 for operation ");
-			System.out.println("Remember 0 is for UNDO and 10 is celebration mode ");
+			System.out.println("Remember 11 is for Master off, \n 0 is for UNDO and \n 10 is undomacro mode");
+			
 
 			
 			int remoteButtonNumber = scan.nextInt();

@@ -1,10 +1,57 @@
 package com.premaseem.commandPattern;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public interface Command {
 
 	public void execute();
 	public void undo();
 
+}
+
+
+class MasterOffcommand implements Command{
+	List<Command> commandMacro;
+	public MasterOffcommand(Command... commands){
+		commandMacro = Arrays.asList(commands);
+	}
+	
+	@Override
+    public void execute() {
+		for(Command cmd:   commandMacro ){
+		System.out.println("putting off  "+ cmd.getClass().getSimpleName() );
+			cmd.execute();
+		}
+		
+    }
+
+	@Override
+    public void undo() {
+	}
+}
+
+class UndocommandMacro implements Command{
+	RemoteControl remoteControl;
+	
+	public UndocommandMacro(RemoteControl Command){
+		this.remoteControl = Command;
+	}
+	
+	@Override
+    public void execute() {
+		for(Command cmd:   remoteControl.getCommandMacro() ){
+		System.out.println("Undoing "+ cmd.getClass().getSimpleName() );
+			cmd.undo();
+		}
+    }
+
+	@Override
+    public void undo() {
+		for(Command cmd:   remoteControl.getCommandMacro() )
+		cmd.undo();
+	}
 }
 
 class Undocommand implements Command{

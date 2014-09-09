@@ -7,7 +7,12 @@ public class RemoteControl {
 
 	List<Command> slots = new ArrayList<Command>(15);
 	Command lastCommand;
+	List<Command> commandMacro = new ArrayList<Command>(3);
 	
+	public List<Command> getCommandMacro() {
+		return commandMacro;
+	}
+
 	public Command getLastCommand() {
 		return lastCommand;
 	}
@@ -24,6 +29,7 @@ public class RemoteControl {
 		Command command = slots.get(keyNumber);
 		command.execute();
 		setLastCommand(command);
+		commandMacro.add(command);
 	}
 }
 
