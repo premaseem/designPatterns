@@ -1,0 +1,48 @@
+Definition:
+
+Intent:
+Compose objects into tree structures to represent whole-part hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
+Recursive composition
+"Directories contain entries, each of which could be a directory."
+1-to-many "has a" up the "is a" hierarchy
+
+What is Whole-part Hierarchy : 
+ A system consists of subsystems or components. Components can further be divided into smaller components. Further smaller components can be divided into smaller elements. This is a part-whole hierarchy.
+ 
+Problem:
+Application needs to manipulate a hierarchical collection of "primitive" and "composite" objects. Processing of a primitive object is handled one way, and processing of a composite object is handled differently. Having to query the "type" of each object before attempting to process it is not desirable. 
+ 
+Tree for Composite
+
+When we get a recursive structure the obvious choice for implementation is a tree. In composite design pattern, the part-whole hierarchy can be represented as a tree. Leaves (end nodes) of a tree being the primitive elements and the tree being the composite structure.
+ 
+ 
+Uml Design for Composite Pattern
+
+Component: (structure)
+
+    Component is at the top of hierarchy. It is an abstraction for the composite.
+    It declares the interface for objects in composition.
+    (optional) defines an interface for accessing a component’s parent in the recursive structure, and implements it if that’s appropriate.
+
+Leaf: (primitive blocks)
+
+    The end nodes of the tree and will not have any child.
+    Defines the behaviour for single objects in the composition
+
+Composite: (group)
+
+    Consists of child components and defines behaviour for them
+    Implements the child related operations.
+ 
+
+ 
+Important Points:
+Recursive formation and tree structure for composite should be noted.
+Clients access the whole hierarchy through the components and they are not aware about if they are dealing with leaf or composites.
+Importance of composite pattern is, the group of objects should be treated similarly as a single object.
+Being able to treat a heterogeneous collection of objects atomically (or transparently) requires that the "child management" interface be defined at the root of the Composite class hierarchy (the abstract Component class). However, this choice costs you safety, because clients may try to do meaningless things like add and remove objects from leaf objects. On the other hand, if you "design for safety", the child management interface is declared in the Composite class, and you lose transparency because leaves and Composites now have different interfaces.
+
+Rules of thumb
+Composite and Decorator have similar structure diagrams, reflecting the fact that both rely on recursive composition to organize an open-ended number of objects.
+Decorator is designed to let you add responsibilities to objects without subclassing. Composite's focus is not on embellishment but on representation. These intents are distinct but complementary. Consequently, Composite and Decorator are often used in concert.
