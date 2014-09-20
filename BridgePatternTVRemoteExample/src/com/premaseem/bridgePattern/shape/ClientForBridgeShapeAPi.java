@@ -1,8 +1,8 @@
-package com.premaseem;
+package com.premaseem.bridgePattern.shape;
 
 import java.util.Scanner;
 
-public class ClientFile {
+public class ClientForBridgeShapeAPi {
 
 	public static void main(String[] args) {
 
@@ -11,40 +11,38 @@ public class ClientFile {
 
 		int repeatRunFlag = 1;
 		while (repeatRunFlag == 1) {
-//			TVInterface tv;
-			System.out.println("Which is your TV company ? ");
-			System.out.println("press 1 for Sony");
-			System.out.println("press 2 for Philip ");
+			ShapeAPI shapeApi;
+			System.out.println("Which color drawing you want to draw ? ");
+			System.out.println("press 1 for Green ");
+			System.out.println("press 2 for Blue");
 			int tvType = scan.nextInt();
 			if (tvType == 1) {
-//				tv = new SonyTVimpl();
+				shapeApi = new GreenShapeAPI();
 			} else {
-//				tv = new PhilipTVimpl();
+				shapeApi = new BlueShapeAPI();
 			}
 
-			System.out.println("What do you want to do with the remote ");
-			System.out.println(" Press 1 to set channel");
-			System.out.println(" Press 2 for some light music ");
-			System.out.println(" Press 3 to record program  ");
+			System.out.println("Which shape do you want ");
+			System.out.println(" Press 1 for Circle");
+			System.out.println(" Press 2 for Rectanble ");
 
-//			RemoteInterface remote = new RemoteInterfaceImpl(tv);
+			Shape shape = new Circle(shapeApi);
 			int type = scan.nextInt();
 			try {
 				switch (type) {
 				case 1:
-//					remote.playChannel();
+					shape = new Circle(shapeApi);
 					break;
 				case 2:
-//					remote.playMusic();
-					break;
-				case 3:
-//					remote.record();
+					shape = new Rectangle(shapeApi);
 					break;
 
 				}
+				
 			} catch (Exception e1) {
 				System.out.println("################ Access is not valid ###############");
 			}
+			shape.draw();
 			System.out.println("=============================");
 
 			System.out.println("Press 1 to Repeat .... ");
@@ -57,7 +55,6 @@ public class ClientFile {
 		}
 
 		System.out.println("\n $$$$$$$$$$$$$$$$$$$$  Thanks by Prem Aseem $$$$$$$$$$$$$$$$$$$$$$ \n ");
-		System.out.println("\n $$$$$$$$$$$$$$$$$$$$$  www.premaseem.com  $$$$$$$$$$$$$$$$$$$$$$ \n ");	
 
 	}
 }
