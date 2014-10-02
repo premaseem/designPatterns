@@ -9,17 +9,21 @@ public class ClientFile {
 		System.out.println("Welcome to TV remote example using Bridge Pattern ");
 		Scanner scan = new Scanner(System.in);
 
-		int repeatRunFlag = 1;
-		while (repeatRunFlag == 1) {
-//			TVInterface tv;
+		// Object initialization block
+	
+		
+		
+		// User input block 
+		String repeatRunFlag = "yes";
+		while (!repeatRunFlag.equalsIgnoreCase("no")) {
 			System.out.println("Which is your TV company ? ");
 			System.out.println("press 1 for Sony");
 			System.out.println("press 2 for Philip ");
-			int tvType = scan.nextInt();
-			if (tvType == 1) {
-//				tv = new SonyTVimpl();
+			int choice = scan.nextInt();
+			if (choice == 1) {
+
 			} else {
-//				tv = new PhilipTVimpl();
+
 			}
 
 			System.out.println("What do you want to do with the remote ");
@@ -27,18 +31,17 @@ public class ClientFile {
 			System.out.println(" Press 2 for some light music ");
 			System.out.println(" Press 3 to record program  ");
 
-//			RemoteInterface remote = new RemoteInterfaceImpl(tv);
 			int type = scan.nextInt();
 			try {
 				switch (type) {
 				case 1:
-//					remote.playChannel();
+
 					break;
 				case 2:
-//					remote.playMusic();
+
 					break;
 				case 3:
-//					remote.record();
+
 					break;
 
 				}
@@ -47,17 +50,17 @@ public class ClientFile {
 			}
 			System.out.println("=============================");
 
-			System.out.println("Press 1 to Repeat .... ");
+			System.out.println("Press No to Exit and any other character to repeat  .... ");
 			try {
-				repeatRunFlag = scan.nextInt();
+				repeatRunFlag = scan.next();
 			} catch (Exception e) {
-				repeatRunFlag = 0;
+				repeatRunFlag = "no";
 			}
 
 		}
 
 		System.out.println("\n $$$$$$$$$$$$$$$$$$$$  Thanks by Prem Aseem $$$$$$$$$$$$$$$$$$$$$$ \n ");
-		System.out.println("\n $$$$$$$$$$$$$$$$$$$$$  www.premaseem.com  $$$$$$$$$$$$$$$$$$$$$$ \n ");	
+		System.out.println("\n $$$$$$$$$$$$$$$$$$$$$  www.premaseem.com  $$$$$$$$$$$$$$$$$$$$$$ \n ");
 
 	}
 }
