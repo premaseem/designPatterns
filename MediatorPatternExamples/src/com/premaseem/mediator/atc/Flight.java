@@ -17,6 +17,7 @@ public class Flight {
 	void grantLandingPermission(){
 		atcMediator.grantLandingPermission(this);
 		System.out.println("just added this line for training")
+		System.out.println("made changes to address code review comment")
 	}
 
 	void landFlight(){
