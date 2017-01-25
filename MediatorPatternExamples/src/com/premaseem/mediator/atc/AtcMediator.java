@@ -19,6 +19,7 @@ public class AtcMediator {
 				System.out.printf(" Landing Permission Not Granted to %s as other filght (%s) has blocked the run way", flight.name, approachingFligh.name);
 			} else {
 				System.out.printf(" %S you already have the permission - ", flight.name);
+				System.out.println("Line for training purpose");
 			}
 		}
 	}
@@ -32,6 +33,7 @@ public class AtcMediator {
 			System.out.printf("Grand permission before landing - WARNING to %s ", flight.name);
 		} else {
 			System.out.printf("Flight %s is already grounded  ", flight.name);
+			System.out.println("Line for training purpose");
 		}
 
 	}
