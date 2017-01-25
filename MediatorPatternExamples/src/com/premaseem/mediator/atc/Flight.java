@@ -3,11 +3,11 @@ package com.premaseem.mediator.atc;
 import com.premaseem.mediator.atc.AtcMediator.FlightStatus;
 
 public class Flight {
-	
+
 	FlightStatus status;
 	AtcMediator atcMediator=null;
 	public String name;
-	
+
 	public Flight(AtcMediator atcMediator, String flightName) {
 		status = FlightStatus.IN_Q;
 		name = flightName;
@@ -16,8 +16,9 @@ public class Flight {
 
 	void grantLandingPermission(){
 		atcMediator.grantLandingPermission(this);
+		System.out.println("just added this line for training")
 	}
-	
+
 	void landFlight(){
 		atcMediator.landFlight(this);
 	}
