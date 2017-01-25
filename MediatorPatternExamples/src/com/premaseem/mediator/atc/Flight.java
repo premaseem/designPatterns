@@ -16,6 +16,7 @@ public class Flight {
 
 	void grantLandingPermission(){
 		atcMediator.grantLandingPermission(this);
+		System.out.println("modified by me");
 	}
 	
 	void landFlight(){
