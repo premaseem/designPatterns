@@ -29,7 +29,7 @@ public class AtcMediator {
 			flight.status = FlightStatus.LANDED;
 			approachingFligh = null;
 		} else if (flight.status.equals(FlightStatus.IN_Q)) {
-			System.out.printf("Added for Training - Grand permission before landing - WARNING to %s ", flight.name);
+			System.out.printf("Testing for Training(Harsha) - Grand permission before landing - WARNING to %s ", flight.name);
 		} else {
 			System.out.printf("Flight %s is already grounded  ", flight.name);
 		}
