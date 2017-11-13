@@ -3,7 +3,7 @@ package com.premaseem.abstractFactory;
 public interface Pizza {
 	void getDescription();
 
-	double getCost();
+	double getCost();// checking changes/////
 }
 
 class VegPizza implements Pizza {
