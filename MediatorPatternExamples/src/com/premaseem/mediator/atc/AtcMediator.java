@@ -12,7 +12,7 @@ public class AtcMediator {
 		if (approachingFligh == null) {
 			approachingFligh = flight;
 			flight.status = FlightStatus.IN_APPROACH;
-			System.out.printf(" Landing Permission Granted to %s , START APPROACHING .... ", flight.name);
+			System.out.printf("HI TEST Landing Permission Granted to %s , START APPROACHING .... ", flight.name);
 
 		} else {
 			if (!approachingFligh.name.equalsIgnoreCase(flight.name)) {
