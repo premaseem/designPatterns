@@ -19,6 +19,7 @@ public class Flight {
 		System.out.println("just added this line for training")
 		System.out.println("made changes to address code review comment")
         System.out.println("Test for git Training")
+        System.out.println("Made changes to address code review comment")
 	}
 
 	void landFlight(){
